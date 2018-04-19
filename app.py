@@ -1,5 +1,5 @@
 import uuid
-
+import os
 from flask import Flask
 from flask_jwt import JWT
 from flask_restful import Api
@@ -10,7 +10,7 @@ from resources.user import UserListApi, UserApi
 from security import authentication, identity
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = str(uuid.uuid4())
 api = Api(app)
