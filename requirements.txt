@@ -5,6 +5,7 @@ Flask==0.12.2
 Flask-JWT==0.3.2
 Flask-RESTful==0.3.6
 Flask-SQLAlchemy==2.3.2
+gunicorn==19.7.1
 isort==4.3.4
 itsdangerous==0.24
 Jinja2==2.10
@@ -18,4 +19,3 @@ six==1.11.0
 SQLAlchemy==1.2.6
 Werkzeug==0.14.1
 wrapt==1.10.11
-uwgsi
