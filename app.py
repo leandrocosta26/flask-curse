@@ -15,6 +15,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = str(uuid.uuid4())
 api = Api(app)
 
+print(os.environ['DATABASE_URL'])
 
 @app.before_first_request
 def create_tables():
