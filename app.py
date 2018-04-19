@@ -17,11 +17,6 @@ api = Api(app)
 
 print(os.environ['DATABASE_URL'])
 
-@app.before_first_request
-def create_tables():
-    db.create_all()
-
-
 jwt = JWT(app, authentication, identity)  # auth
 
 api.add_resource(ItemApi, '/items/<string:name>')
@@ -35,6 +30,12 @@ api.add_resource(StoreApi, '/stores/<string:name>')
 
 if __name__ == "__main__":
     from utils.database import db
+
+
+    @app.before_first_request
+    def create_tables():
+        db.create_all()
+
 
     db.init_app(app)
     app.run()
