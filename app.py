@@ -36,4 +36,4 @@ if __name__ == "__main__":
     from utils.database import db
 
     db.init_app(app)
-    app.run(debug=True, port=5001)
+    app.run()
