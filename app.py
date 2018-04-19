@@ -31,6 +31,7 @@ api.add_resource(StoreApi, '/stores/<string:name>')
 if __name__ == "__main__":
     from utils.database import db
 
-    db.init_app(app)
+    db.init_app()
+    db.app = app
     db.create_all()
     app.run()
