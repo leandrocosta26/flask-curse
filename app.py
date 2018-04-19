@@ -15,8 +15,6 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = str(uuid.uuid4())
 api = Api(app)
 
-print(os.environ['DATABASE_URL'])
-
 jwt = JWT(app, authentication, identity)  # auth
 
 api.add_resource(ItemApi, '/items/<string:name>')
@@ -29,9 +27,4 @@ api.add_resource(StoreListApi, '/stores')
 api.add_resource(StoreApi, '/stores/<string:name>')
 
 if __name__ == "__main__":
-    from utils.database import db
-
-    db.init_app()
-    db.app = app
-    db.create_all()
     app.run()
